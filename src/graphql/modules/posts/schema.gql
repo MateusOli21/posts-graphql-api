@@ -1,0 +1,23 @@
+type Post {
+  _id: ID!
+  type: String!
+  content: String!
+  author: User!
+}
+
+input PostInput {
+  type: String!
+  content: String!
+  author: ID!
+}
+
+type Query {
+  posts: [Post!]!
+  post(id: ID!): Post!
+}
+
+type Mutation {
+  createPost(data: PostInput!): Post!
+  updatePost(id: ID, data: PostInput!): Post!
+  deletePost(id: ID!): Boolean
+}
